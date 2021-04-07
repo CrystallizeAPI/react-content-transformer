@@ -11,5 +11,5 @@ const overrides = {
   link: props => <a href={props.metadata.href}><NodeContent {...props} /></a>
 };
 
-<ContentTransformer {...contentModel} overrides={overrides} />
+<ContentTransformer json={richTextJson} overrides={overrides} />
 ```
