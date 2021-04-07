@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ReactElement } from 'react';
 
 interface NodeMetadata {
   [key: string]: any;
@@ -12,20 +12,22 @@ export interface NodeProps {
   metadata?: NodeMetadata;
 }
 
+type Override = (props: NodeProps) => ReactElement<any, any> | null | string;
+
 export interface Overrides {
-  link?: FC<NodeProps>;
-  'unordered-list': FC<NodeProps>;
-  'ordered-list': FC<NodeProps>;
-  list: FC<NodeProps>;
-  'list-item': FC<NodeProps>;
-  quote: FC<NodeProps>;
-  paragraph: FC<NodeProps>;
-  preformatted: FC<NodeProps>;
-  code: FC<NodeProps>;
-  underline: FC<NodeProps>;
-  strong: FC<NodeProps>;
-  emphasized: FC<NodeProps>;
-  div?: FC<NodeProps>;
-  span?: FC<NodeProps>;
-  'line-break'?: FC<NodeProps>;
+  link?: Override;
+  'unordered-list'?: Override;
+  'ordered-list'?: Override;
+  list?: Override;
+  'list-item'?: Override;
+  quote?: Override;
+  paragraph?: Override;
+  preformatted?: Override;
+  code?: Override;
+  underline?: Override;
+  strong?: Override;
+  emphasized?: Override;
+  div?: Override;
+  span?: Override;
+  'line-break'?: Override;
 }
