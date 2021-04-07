@@ -64,7 +64,7 @@ export const Renderers = {
       <NodeContent {...props} />
     </code>
   ),
-  underline: (props: NodeProps) => (
+  underlined: (props: NodeProps) => (
     <u>
       <NodeContent {...props} />
     </u>
@@ -157,12 +157,10 @@ export const ContentTransformerNode = (props: NodeProps): JSX.Element => {
   }
 
   if (!Renderer) {
-    if (type === 'container') {
-      if (kind === 'inline') {
-        Renderer = Renderers.span;
-      } else {
-        Renderer = Renderers.div;
-      }
+    Renderer = Renderers.span;
+
+    if (type === 'container' && kind === 'block') {
+      Renderer = Renderers.div;
     } else if (type === null && textContent) {
       return renderTextContent(textContent);
     }

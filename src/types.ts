@@ -24,7 +24,7 @@ export interface Overrides {
   paragraph?: Override;
   preformatted?: Override;
   code?: Override;
-  underline?: Override;
+  underlined?: Override;
   strong?: Override;
   emphasized?: Override;
   div?: Override;

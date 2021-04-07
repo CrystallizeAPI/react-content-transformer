@@ -9,7 +9,7 @@ export const simpleNestedModel = {
     },
     {
       kind: 'inline',
-      type: 'underline',
+      type: 'underlined',
       textContent: 'you',
     },
     {

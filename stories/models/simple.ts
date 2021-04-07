@@ -9,7 +9,7 @@ export const simpleModel = {
     },
     {
       kind: 'inline',
-      type: 'underline',
+      type: 'underlined',
       textContent: 'you',
     },
     {
