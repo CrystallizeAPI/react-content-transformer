@@ -1,4 +1,9 @@
-import React, { Fragment, createContext, HTMLAttributes } from 'react';
+import React, {
+  Fragment,
+  createContext,
+  useContext,
+  HTMLAttributes,
+} from 'react';
 
 import { NodeProps, Overrides } from './types';
 
@@ -140,21 +145,26 @@ export function renderTextContent(text: String) {
 
 export const ContentTransformerNode = (props: NodeProps): JSX.Element => {
   let Renderer = Renderers.span;
+  const overrides = useContext(OverridesContext);
 
   const { type, kind, textContent } = props;
 
   if (type) {
-    Renderer = Renderers[type as keyof typeof Renderers];
-    if (!Renderer) {
-      Renderer = Renderers.div;
+    const t = type as keyof typeof Renderers;
+    const override = overrides?.[t] as () => JSX.Element;
 
-      if (type === 'container') {
-        if (kind === 'inline') {
-          Renderer = Renderers.span;
-        }
-      } else if (type === null && textContent) {
-        return renderTextContent(textContent);
+    Renderer = override || Renderers[type as keyof typeof Renderers];
+  }
+
+  if (!Renderer) {
+    if (type === 'container') {
+      if (kind === 'inline') {
+        Renderer = Renderers.span;
+      } else {
+        Renderer = Renderers.div;
       }
+    } else if (type === null && textContent) {
+      return renderTextContent(textContent);
     }
   }
 
