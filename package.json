@@ -76,6 +76,10 @@
     "tslib": "^2.2.0",
     "typescript": "^4.2.4"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CrystallizeAPI/react-content-transformer.git"
+  },
   "release": {
     "branches": [
       "main",
