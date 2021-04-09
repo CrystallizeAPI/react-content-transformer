@@ -94,7 +94,7 @@ export const Renderers = {
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   overrides?: Overrides | null;
-  json: [NodeProps] | NodeProps;
+  json?: [NodeProps] | NodeProps;
 }
 
 export const OverridesContext = createContext<Overrides | null>(null);
@@ -170,6 +170,10 @@ export const ContentTransformerNode = (props: NodeProps): JSX.Element => {
 };
 
 export const ContentTransformer = ({ overrides = null, json }: Props) => {
+  if (!json) {
+    return null;
+  }
+
   if (Array.isArray(json)) {
     const nodes: [NodeProps] = json;
     return (

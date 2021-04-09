@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { ContentTransformer, Props, NodeContent } from '../src';
 
+import { ContentTransformer, Props, NodeContent } from '../src';
 import { simpleModel } from './models/simple';
 import { simpleNestedModel } from './models/simple-nested';
+import { preCodeModel } from './models/pre-code';
 
 const meta: Meta = {
   title: 'Welcome',
@@ -34,7 +35,7 @@ WithLinkOverride.args = {
   json: simpleModel,
   overrides: {
     link: props => (
-      <a href={props.metadata.href}>
+      <a href={props.metadata?.href}>
         🥸 Injected coolness 🥸 <NodeContent {...props} />
       </a>
     ),
@@ -51,9 +52,14 @@ NestedWithLinkOverride.args = {
   json: simpleNestedModel,
   overrides: {
     link: props => (
-      <a href={props.metadata.href}>
+      <a href={props.metadata?.href}>
         🥸 Injected coolness 🥸 <NodeContent {...props} />
       </a>
     ),
   },
+};
+
+export const PreCode = Template.bind({});
+PreCode.args = {
+  json: preCodeModel,
 };
