@@ -5,6 +5,7 @@ import { ContentTransformer, Props, NodeContent } from '../src';
 import { simpleModel } from './models/simple';
 import { simpleNestedModel } from './models/simple-nested';
 import { preCodeModel } from './models/pre-code';
+import { withLinksModel } from './models/with-links';
 
 const meta: Meta = {
   title: 'Welcome',
@@ -62,4 +63,9 @@ NestedWithLinkOverride.args = {
 export const PreCode = Template.bind({});
 PreCode.args = {
   json: preCodeModel,
+};
+
+export const WithLinks = Template.bind({});
+WithLinks.args = {
+  json: withLinksModel,
 };

@@ -84,11 +84,7 @@ export const Renderers = {
       <NodeContent {...props} />
     </div>
   ),
-  span: (props: NodeProps) => (
-    <span>
-      <NodeContent {...props} />
-    </span>
-  ),
+  span: (props: NodeProps) => <NodeContent {...props} />,
   'line-break': () => <br />,
 };
 
