@@ -1,9 +1,4 @@
-import React, {
-  Fragment,
-  createContext,
-  useContext,
-  HTMLAttributes,
-} from 'react';
+import React, { Fragment, createContext, useContext } from 'react';
 
 import { NodeProps, Overrides } from './types';
 
@@ -88,7 +83,7 @@ export const Renderers = {
   'line-break': () => <br />,
 };
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props {
   overrides?: Overrides | null;
   json?: [NodeProps] | NodeProps;
 }
