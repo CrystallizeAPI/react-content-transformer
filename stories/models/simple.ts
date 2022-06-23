@@ -1,4 +1,6 @@
-export const simpleModel = {
+import { NodeProps } from '../../src';
+
+export const simpleModel: NodeProps = {
   kind: 'block',
   type: 'paragraph',
   children: [
@@ -14,7 +16,7 @@ export const simpleModel = {
     },
     {
       kind: 'inline',
-      type: null,
+      type: 'container',
       textContent: ' ',
     },
     {

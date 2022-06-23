@@ -1,4 +1,6 @@
-export const simpleNestedModel = {
+import { NodeProps } from '../../src';
+
+export const simpleNestedModel: NodeProps = {
   kind: 'block',
   type: 'paragraph',
   children: [
@@ -14,7 +16,7 @@ export const simpleNestedModel = {
     },
     {
       kind: 'inline',
-      type: null,
+      type: 'container',
       textContent: ' ',
     },
     {
@@ -29,16 +31,18 @@ export const simpleNestedModel = {
         {
           kind: 'inline',
           type: 'list-item',
-          children: [{
-            kind: 'inline',
-            type: 'link',
-            textContent: 'Link text',
-            metadata: {
-              href: '#'
-            }
-          }]
-        }
-      ]
+          children: [
+            {
+              kind: 'inline',
+              type: 'link',
+              textContent: 'Link text',
+              metadata: {
+                href: '#',
+              },
+            },
+          ],
+        },
+      ],
     },
   ],
 };

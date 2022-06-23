@@ -8,11 +8,13 @@ export interface NodeProps {
   kind?: string;
   type?: string;
   textContent?: string;
-  children?: [NodeProps];
+  children?: NodeProps[];
   metadata?: NodeMetadata;
 }
 
-export type Override = (props: NodeProps) => ReactElement<any, any> | null | string;
+export type Override = (
+  props: NodeProps
+) => ReactElement<any, any> | null | string;
 
 export interface Overrides {
   link?: Override;

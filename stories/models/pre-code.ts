@@ -1,4 +1,6 @@
-export const preCodeModel = {
+import { NodeProps } from '../../src';
+
+export const preCodeModel: NodeProps = {
   kind: 'block',
   type: 'preformatted',
   children: [
@@ -6,6 +8,6 @@ export const preCodeModel = {
       kind: 'block',
       type: 'code',
       textContent: 'alert("hey you");',
-    }
+    },
   ],
 };
